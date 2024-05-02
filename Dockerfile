@@ -1,9 +1,9 @@
 # Base CUDA image
 FROM cnstark/pytorch:2.0.1-py3.9.17-cuda11.8.0-ubuntu20.04
 
-LABEL maintainer="breakstring@hotmail.com"
-LABEL version="dev-20240209"
-LABEL description="Docker image for GPT-SoVITS"
+LABEL maintainer="rolandlivingstone@gmail.com"
+LABEL version="dev-20240209-az-20240502"
+LABEL description="Docker image for GPT-SoVITS improved by azhu."
 
 
 # Install 3rd party apps
