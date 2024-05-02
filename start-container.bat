@@ -3,7 +3,7 @@
 @REM get the script directory
 set SCRIPT_DIR=%~dp0
 set IMAGE_NAME=azhu0511/gpt-sovits:latest
-set LAUNCH_FILE="%SCRIPT_DIR%\GPT_SoVITS\inference_webui_az.py"
+set LAUNCH_FILE="./GPT_SoVITS/inference_webui_az.py"
 echo inference server will running at http://localhost:9872/
 
 
