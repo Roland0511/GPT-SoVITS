@@ -64,14 +64,18 @@ def load_checkpoint(checkpoint_path, model, optimizer=None, skip_optimizer=False
     )
     return model, optimizer, learning_rate, iteration
 
+
 from time import time as ttime
 import shutil
-def my_save(fea,path):#####fix issue: torch.save doesn't support chinese path
-    dir=os.path.dirname(path)
-    name=os.path.basename(path)
-    tmp_path="%s.pth"%(ttime())
-    torch.save(fea,tmp_path)
-    shutil.move(tmp_path,"%s/%s"%(dir,name))
+
+
+def my_save(fea, path):  #####fix issue: torch.save doesn't support chinese path
+    dir = os.path.dirname(path)
+    name = os.path.basename(path)
+    tmp_path = "%s.pth" % (ttime())
+    torch.save(fea, tmp_path)
+    shutil.move(tmp_path, "%s/%s" % (dir, name))
+
 
 def save_checkpoint(model, optimizer, learning_rate, iteration, checkpoint_path):
     logger.info(
@@ -361,6 +365,15 @@ class HParams:
 
     def __repr__(self):
         return self.__dict__.__repr__()
+
+
+def srt_segment(index: int, start: int, end: int, text):
+    def time_format(x):
+        return f"{int(x//3600):02}:{int((x%3600)//60):02}:{int(x%60):02},{int((x%1)*1000):03.0f}"
+
+    result = f"{index}\n{time_format(start)} --> {time_format(end)}\n{text}\n\n"
+    # print(f'{index} {start} {end} {text} =>>> {result}')
+    return result
 
 
 if __name__ == "__main__":
